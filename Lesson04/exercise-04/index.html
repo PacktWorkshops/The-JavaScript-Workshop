@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.9.0/umd/react.production.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.6/umd/react-dom.production.min.js" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="text/javascript">
+      const todoListItems = [
+        'buy flowers',
+        'tidy up',
+        'go to the gym'
+      ];
+
+      const todoListElements = todoListItems.map(item =>
+        React.createElement('li', null, item)
+      );
+      ReactDOM.render(todoListElements, document.getElementById('root'));
+    </script>
+  </body>
+</html>
