@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+  </head>
+  <body>
+    <div id="console"></div>
+    <div class='cam-canvas-wrapper'>
+      <video autoplay playsinline muted id="video" width="640" height="480"></video>
+      <canvas id='canvas'></canvas>
+    </div>
+    <script src="tf.js"></script>
+  </body>
+</html>
+<style>
+  video, canvas {
+    position: fixed;
+    top: 100px;
+    left: 100px;
+  }
+</style>
