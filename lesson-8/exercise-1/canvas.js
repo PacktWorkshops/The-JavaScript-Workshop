@@ -4,7 +4,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let context = canvas.getContext('2d');
 context.fillStyle = 'yellow';
-context.fillRect(10,10,200,200);
+context.fillRect(10, 10, 200, 200);
 context.fillStyle = 'black';
 context.strokeRect(230, 10, 200, 200);
 context.setLineDash([10]);

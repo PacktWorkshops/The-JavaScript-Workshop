@@ -7,10 +7,10 @@ request.onsuccess = event => {
   cursorReq.onsuccess = e => {
     let cursor = e.target.result;
     if (cursor) {
-      console.log(cursor.value); // do something with this entry. 
+      console.log(cursor.value); // do something with this entry.
       cursor.continue();
     } else {
       console.log('end of entries');
-    };
+    }
   };
 };
