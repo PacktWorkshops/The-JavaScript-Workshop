@@ -9,20 +9,22 @@ let point = [width / 2, height / 2];
 context.beginPath();
 context.moveTo(point[0], point[1]);
 let i = 1;
+const OFFSET = 10;
+const MARGIN = 5;
 while (
-  point[0] > 5 &&
-  point[0] < width - 5 &&
-  point[1] > 5 &&
-  point[1] < height - 5
+  point[0] > MARGIN &&
+  point[0] < width - MARGIN &&
+  point[1] > MARGIN &&
+  point[1] < height - MARGIN
 ) {
-  point[1] = point[1] - 10 * i;
+  point[1] = point[1] - OFFSET * i;
   context.lineTo(point[0], point[1]);
-  point[0] = point[0] + 10 * i;
+  point[0] = point[0] + OFFSET * i;
   i++;
   context.lineTo(point[0], point[1]);
-  point[1] = point[1] + 10 * i;
+  point[1] = point[1] + OFFSET * i;
   context.lineTo(point[0], point[1]);
-  point[0] = point[0] - 10 * i;
+  point[0] = point[0] - OFFSET * i;
   i++;
   context.lineTo(point[0], point[1]);
 }
