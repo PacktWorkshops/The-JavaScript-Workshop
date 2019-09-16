@@ -1,0 +1,41 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "globalReturn": false
+    }
+  },
+
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+
+  "plugins": ["fp", "flowtype"],
+
+  "extends": ["eslint:recommended", "plugin:flowtype/recommended"],
+
+  "rules": {
+    "no-duplicate-imports": "error",
+    "prefer-const": "error",
+    "prefer-spread": "error",
+    "prefer-rest-params": "error",
+    "no-param-reassign": "error",
+    "symbol-description": "error",
+    "sort-imports": "error",
+    "no-shadow": "error",
+    "prefer-promise-reject-errors": "error",
+    "eqeqeq": ["error", "smart"],
+    "no-invalid-this": "error",
+    "no-eval": "error",
+    "complexity": ["error", 5],
+    "valid-jsdoc": "error",
+    "no-console": 0,
+    "no-var": "error",
+
+    "fp/no-unused-expression": 0
+  }
+}
