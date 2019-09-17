@@ -1,27 +1,25 @@
 {
-	"twitter_username": "@realDonaldTrump",
-	"first_name": "Donald",
-	"last_name": "Trump",
-	"addresses": [{
-		"address_lines": [
-			"The White House",
-			"1600 Pennsylvania Ave NW"
-		],
-		"city": "Washington",
-		"province": "DC",
-		"postal_code": "20500",
-		"country": "US"
-	}, {
-		"address_lines": [
-			"Trump Tower",
-			"725 5th Ave"
-		],
-		"city": "New York",
-		"province": "NY",
-		"postal_code": "10022",
-		"country": "US"
-	}],
-	"active": true,
-	"year_joined": 2016,
-	"eye_color": null
+    "twitter_username": "@LeoDiCaprio",
+    "first_name": "Leonardo",
+    "last_name": "DiCaprio",
+    "famous_movies": [{
+        "title": "Titanic",
+        "director": "James Cameron",
+        "costars": [
+            "Kate Winslet",
+            "Billy Zane"
+        ],
+        "year": 1997
+    }, {
+        "title": "The Great Gatsby",
+        "director": "Baz Luhrmann",
+        "costars": [
+            "Tobey Maguire",
+            "Carey Mulligan",
+            "Joel Edgerton"
+        ],
+        "year": 2013
+    }],
+    "active": true,
+    "eye_color": null
 }
