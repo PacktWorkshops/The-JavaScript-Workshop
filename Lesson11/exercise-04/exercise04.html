@@ -1,0 +1,79 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+
+<body>
+
+Press F12 to see output in the JavaScript console
+
+<script>
+
+const runners = [
+    {name: "Courtney", gender: "F", age: 21, timeSeconds: 1505},
+    {name: "Lelisa",   gender: "M", age: 24, timeSeconds: 1370},
+    {name: "Anthony",  gender: "M", age: 32, timeSeconds: 1538},
+    {name: "Halina",   gender: "F", age: 33, timeSeconds: 1576},
+    {name: "Nilani ",  gender: "F", age: 27, timeSeconds: 1601},
+    {name: "Laferne",  gender: "F", age: 35, timeSeconds: 1572},
+    {name: "Jerome",   gender: "M", age: 22, timeSeconds: 1384},
+    {name: "Yipeng",   gender: "M", age: 29, timeSeconds: 1347},
+    {name: "Jyothi",   gender: "F", age: 39, timeSeconds: 1462},
+    {name: "Chetan",   gender: "M", age: 36, timeSeconds: 1597},
+    {name: "Giuseppe", gender: "M", age: 38, timeSeconds: 1570},
+    {name: "Oksana",   gender: "F", age: 23, timeSeconds: 1617}
+];
+
+const filter = fx => arr => arr.filter(fx);
+
+const map = fx => arr => arr.map(fx);
+
+const max = arr => Math.max(...arr);
+
+const compose = (...fns) => input => 
+    fns.reduceRight((prev, fn) => fn(prev), input);
+	
+const pipe = (...fns) => input => fns.reduce((prev, fn) => fn(prev), input);
+
+const oldestFemaleRunner1 = compose(
+    max, 
+    map(runner => runner.age), 
+    filter(runner => runner.gender === "F")
+);
+
+const result1 = oldestFemaleRunner1(runners);
+
+console.log("Result of oldestFemaleRunner1 is ", result1);
+// => Expected output: Result of oldestFemaleRunner1 is 39
+
+
+const femaleFilter = filter(runner => runner.gender === "F");
+
+const oldestFemaleRunner2 = compose(
+    max, 
+    map(runner => runner.age), 
+    femaleFilter
+);
+       
+const result2 = oldestFemaleRunner2(runners);
+       
+console.log("Result of oldestFemaleRunner2 is ", result2);
+// => Expected output: Result of oldestFemaleRunner2 is 39
+
+
+const oldestFemaleRunner3 = pipe(
+    femaleFilter, 
+    map(runner => runner.age), 
+    max
+);
+       
+const result3 = oldestFemaleRunner3(runners);
+       
+console.log("Result of oldestFemaleRunner3 is ", result3);
+// => Exected output: Result of oldestFemaleRunner3 is 39
+
+</script>
+
+</body>
+
+</html>

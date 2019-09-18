@@ -1,0 +1,79 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+
+<body>
+
+Press F12 to see output in the JavaScript console
+
+<script>
+
+const runners = [
+    {name: "Courtney", gender: "F", age: 21, timeSeconds: 1505},
+    {name: "Lelisa",   gender: "M", age: 24, timeSeconds: 1370},
+    {name: "Anthony",  gender: "M", age: 32, timeSeconds: 1538},
+    {name: "Halina",   gender: "F", age: 33, timeSeconds: 1576},
+    {name: "Nilani ",  gender: "F", age: 27, timeSeconds: 1601},
+    {name: "Laferne",  gender: "F", age: 35, timeSeconds: 1572},
+    {name: "Jerome",   gender: "M", age: 22, timeSeconds: 1384},
+    {name: "Yipeng",   gender: "M", age: 29, timeSeconds: 1347},
+    {name: "Jyothi",   gender: "F", age: 39, timeSeconds: 1462},
+    {name: "Chetan",   gender: "M", age: 36, timeSeconds: 1597},
+    {name: "Giuseppe", gender: "M", age: 38, timeSeconds: 1570},
+    {name: "Oksana",   gender: "F", age: 23, timeSeconds: 1617}
+];
+
+const minsSecs = timeSeconds =>
+            Math.floor(timeSeconds / 60) + ":" + 
+            Math.round(timeSeconds % 60).toString().padStart(2, '0');
+            
+const addPacesToRunners = runners => runners.map(runner =>
+    ({...runner, pace: runner.timeSeconds / 3.1}));
+const pacesWithAllFields = addPacesToRunners(runners);
+
+const groupSumPaceByGender = runners => runners.reduce((groups, runner) => {
+    const gender = runner.gender;
+    groups[gender] = groups[gender] || {pace: 0, count: 0};
+    groups[gender].pace += runner.pace;
+    groups[gender].count += 1;
+    return groups;
+}, {});
+const sumPacesByGender = groupSumPaceByGender(pacesWithAllFields);
+
+console.log(JSON.stringify(sumPacesByGender,null,4));
+
+// Expected output:
+// => { 
+// =>     "F": { 
+// =>         "pace": 3010.645161290322, 
+// =>         "count": 6 
+// =>     },
+// =>     "M": { 
+// =>         "pace": 2840.6451612903224, 
+// =>         "count": 6 
+// =>     }
+// => }
+
+const calcAvgPaceByGender = sumPacesByGender =>
+    Object.keys(sumPacesByGender).map(gender => {
+        const group = sumPacesByGender[gender];
+        return {gender: gender, avgPace: group.pace / group.count};
+    }
+);
+const avgPaceByGender = calcAvgPaceByGender(sumPacesByGender);
+
+console.log("Average pace by gender:");
+avgPaceByGender.forEach(entry => console.log(
+    `gender: ${entry.gender}  average pace: ${minsSecs(entry.avgPace)}`));
+
+// Expected output:
+// => Average pace by gender:
+// => gender: F  average pace: 8:22
+// => gender: M  average pace: 7:53
+
+</script>
+
+</body>
+
+</html>
