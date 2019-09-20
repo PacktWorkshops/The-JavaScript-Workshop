@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Array.from(document.getElementsByTagName('input')).forEach(input => {
     // For each input element
     input.addEventListener('keydown', event => {
-      // add a keydown event listenr
+      // add a keydown event listenr << typo
       if (event.keyCode === 13) {
         // if it's keyCode 13 (the enter key)
         let messageData = {

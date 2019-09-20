@@ -28,6 +28,8 @@ request.onsuccess = event => {
     commonName: 'Slow Loris',
     traits: ['Furry', 'Every day is Sunday'],
   });
+
+  // re-definition of the variable store
   let store = trx.objectStore('mammals');
 
   trx.oncomplete = () => {
@@ -35,6 +37,7 @@ request.onsuccess = event => {
   };
 };
 
+// request variable is re-defined
 let request = window.indexedDB.open('animals', 1);
 
 request.onsuccess = event => {
