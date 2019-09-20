@@ -1,11 +1,31 @@
 // Declare and initialize the todo list array
-
+let todoList = [
+	"Wash Laundry",
+	"Clean Silver",
+	"Write Letters",
+	"Purchase Groceries",
+	"Retrieve Mail",
+	"Prepare Dinner"
+];
 // The todo list element
-
+let todoEle = document.getElementById('todo-list');
 // The randomize button element.
-
+let randomButtonEle = document.getElementById('randomize-button');
 // Add event listener function for the randomize button element.
-
+randomButtonEle.addEventListener('click', randomButtonClicked);
+/**
+ * Replace element in an HTML list with an array
+ * @param {HTMLUListElement || HTMLOListElement} listEle - HTML list UL or OL element
+ * @param {array} listItems - One dimension array of strings 
+*/
+function replaceListElements(listEle, listItems){
+	listEle.innerHTML = "";
+	for (let i= 0; i<= listItems.length - 1; i++){
+		let liEle = document.createElement("li");
+		liEle.appendChild(document.createTextNode(listItems[i]));
+		listEle.appendChild(liEle);
+	}
+}
 /**
  * Shuffles array elements
  * @param {array} sourceArray - Array to be shuffled.
@@ -35,3 +55,13 @@ function getNewShuffledArray(sourceArray){
 	}
 	return newArray;
 }
+/**
+ * Handles click events for the randomButtonClicked
+ * @param {MouseEvent} e - MouseEvent object
+*/
+function randomButtonClicked(e){
+	console.log(e);
+	replaceListElements(todoEle, getNewShuffledArray(todoList));
+}
+// Update the todo list view with initial list of items
+replaceListElements(todoEle, todoList);
