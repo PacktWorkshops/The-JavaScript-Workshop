@@ -1,10 +1,12 @@
 // Declare and initialize the todo list array
 
-// The todo list element
+// Declare and initialize variable for the todo list element
 
-// The randomize button element.
+// Declare and initialize variable for shuffle button element.
 
-// Add event listener function for the randomize button element.
+// Add event listener function for the shuffle button element.
+
+// Function to replace an HTML DOM list li elements with array items.
 
 /**
  * Shuffles array elements
@@ -35,3 +37,7 @@ function getNewShuffledArray(sourceArray){
 	}
 	return newArray;
 }
+
+// Function to handle click events for the Shuffle button
+
+// Update the todo list view with initial list of items

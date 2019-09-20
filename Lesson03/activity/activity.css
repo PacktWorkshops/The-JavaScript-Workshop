@@ -20,15 +20,17 @@ ol {
 button{
 	background-color: cornflowerblue;
 	border: none;
-	border-radius: 1.2rem;
-	color: black;
 	color: white;
 	cursor:pointer;
 	display: inline-block;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 2rem;
 	font-style: bold;
 	padding: 1rem 1.2rem;
 	text-align: center;
 	text-decoration: none;
+}
+#shuffle-button{
+	border-radius: 1.2rem;
+	font-size: 2rem;
+	padding: 1rem 3rem;
 }

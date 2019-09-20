@@ -9,10 +9,10 @@ let todoList = [
 ];
 // The todo list element
 let todoEle = document.getElementById('todo-list');
-// The randomize button element.
-let randomButtonEle = document.getElementById('randomize-button');
-// Add event listener function for the randomize button element.
-randomButtonEle.addEventListener('click', randomButtonClicked);
+// The shuffle button element.
+let shuffleButtonEle = document.getElementById('shuffle-button');
+// Add event listener function for the shuffle button element.
+shuffleButtonEle.addEventListener('click', shuffleButtonClicked);
 /**
  * Replace element in an HTML list with an array
  * @param {HTMLUListElement || HTMLOListElement} listEle - HTML list UL or OL element
@@ -56,11 +56,10 @@ function getNewShuffledArray(sourceArray){
 	return newArray;
 }
 /**
- * Handles click events for the randomButtonClicked
+ * Handles click events for the shuffleButtonElement
  * @param {MouseEvent} e - MouseEvent object
 */
-function randomButtonClicked(e){
-	console.log(e);
+function shuffleButtonClicked(e){
 	replaceListElements(todoEle, getNewShuffledArray(todoList));
 }
 // Update the todo list view with initial list of items
