@@ -24,7 +24,7 @@ button{
 	cursor:pointer;
 	display: inline-block;
 	font-family: Arial, Helvetica, sans-serif;
-	font-style: bold;
+	font-weight: bold;
 	padding: 1rem 1.2rem;
 	text-align: center;
 	text-decoration: none;
