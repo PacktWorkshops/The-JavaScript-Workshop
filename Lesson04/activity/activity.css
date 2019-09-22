@@ -1,0 +1,36 @@
+@charset "UTF-8";
+body {
+	background-color:rgb(37, 37, 37);
+	color:aliceblue;
+	padding:2rem;
+	margin:0;
+	font-family: 'Architects Daughter', cursive;
+	font-size: 12px;
+}
+h1 {
+	font-family: 'Bowlby One SC', cursive;
+	font-size: 2.8rem;
+	color: cornflowerblue;
+	margin:0;
+}
+ol {
+	font-family: 'Architects Daughter', cursive;
+	font-size: 1.6rem;
+}
+button{
+	background-color: cornflowerblue;
+	border: none;
+	color: white;
+	cursor:pointer;
+	display: inline-block;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding: 1rem 1.2rem;
+	text-align: center;
+	text-decoration: none;
+}
+#shuffle-button{
+	border-radius: 1.2rem;
+	font-size: 2rem;
+	padding: 1rem 3rem;
+}
