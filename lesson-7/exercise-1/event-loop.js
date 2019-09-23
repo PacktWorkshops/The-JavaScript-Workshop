@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 });
 
-showStatus('Calculation running, please wait... Maybe for quite a while...');
+showStatus('Calculation running, please wait... May be for quite a while...');
 doCalculation();
 showStatus('Calculation finished, here is the result:');
 
 
 // Solution:
 
-// showStatus('Calculation running, please wait... Maybe for quite a while...');
+// showStatus('Calculation running, please wait... May be for quite a while...');
 //   setTimeout(() => {
 //     doCalculation();
 //     showStatus('Calculation finished, here is the result:');
