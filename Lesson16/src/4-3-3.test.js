@@ -2,12 +2,12 @@ import { Identity, Failure } from './functors';
 
 test('Imperative Example', () => {
   function averageWordLengthInSentence(sentence) {
-    if (typeof sentence != 'string') return;
+    if (typeof sentence !== 'string') return;
     let words = sentence.split(' ');
     let count = [];
     let sum = 0;
     for (let i = 0; i < words.length; i++) {
-      if (!words[i].length || words[i].length == 0) continue;
+      if (!words[i].length || words[i].length === 0) continue;
       count.push(words[i].length);
       sum += words[i].length;
     }

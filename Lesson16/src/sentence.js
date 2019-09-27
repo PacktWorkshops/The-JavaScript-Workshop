@@ -8,10 +8,10 @@ let process = (value, typeCheck, transform) => {
 };
 
 let validateString = function(value) {
-  return process(value, v => typeof v == 'string', v => v);
+  return process(value, v => typeof v === 'string', v => v);
 };
 let splitStringIntoList = function(value) {
-  return process(value, v => typeof v == 'string', v => v.split(' '));
+  return process(value, v => typeof v === 'string', v => v.split(' '));
 };
 let rejectEmptyStrings = function(value) {
   return process(

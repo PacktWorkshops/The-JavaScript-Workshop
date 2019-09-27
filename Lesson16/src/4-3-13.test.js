@@ -95,11 +95,12 @@ describe('Test Setup and Teardown Functions', () => {
 });
 
 describe('Asynchronous Assertions', () => {
+  const ONE_SECOND = 1000;
   test('Failing async call', () => {
     expect.assertions(0);
     setTimeout(() => {
       expect(true).toBeTruthy();
-    }, 1000);
+    }, ONE_SECOND);
   });
   test('Passing async call', () => {
     expect.hasAssertions();
@@ -108,6 +109,6 @@ describe('Asynchronous Assertions', () => {
         setTimeout(resolve, delay);
       });
     }
-    return later(1000).then(() => expect(true).toBeTruthy());
+    return later(ONE_SECOND).then(() => expect(true).toBeTruthy());
   });
 });

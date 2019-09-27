@@ -3,12 +3,13 @@ jest.useFakeTimers();
 describe('4.3.15 - Mocking Tests', () => {
   test('Timer Function Mocks', () => {
     const callback = jest.fn();
-    setTimeout(callback, 1000);
+    const ONE_SECOND = 1000;
+    setTimeout(callback, ONE_SECOND);
 
     jest.runAllTimers();
 
     expect(setTimeout).toHaveBeenCalledTimes(1);
-    expect(setTimeout).toHaveBeenLastCalledWith(callback, 1000);
+    expect(setTimeout).toHaveBeenLastCalledWith(callback, ONE_SECOND);
     expect(callback).toHaveBeenCalledTimes(1);
   });
 
