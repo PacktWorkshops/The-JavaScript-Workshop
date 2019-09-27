@@ -3,17 +3,18 @@ jest.useFakeTimers();
 describe('4.3.15 - Mocking Tests', () => {
   test('Timer Function Mocks', () => {
     const callback = jest.fn();
-    setTimeout(callback, 1000);
+    const ONE_SECOND = 1000;
+    setTimeout(callback, ONE_SECOND);
 
     jest.runAllTimers();
 
     expect(setTimeout).toHaveBeenCalledTimes(1);
-    expect(setTimeout).toHaveBeenLastCalledWith(callback, 1000);
+    expect(setTimeout).toHaveBeenLastCalledWith(callback, ONE_SECOND);
     expect(callback).toHaveBeenCalledTimes(1);
-  })
+  });
 
   test('Functions Mocks', () => {
-    const callbackFn = () => console.log("I am a callback");
+    const callbackFn = () => console.log('I am a callback');
     const callbackMock = jest.fn(callbackFn);
 
     callbackMock.mockReturnValueOnce('a');
@@ -23,9 +24,9 @@ describe('4.3.15 - Mocking Tests', () => {
     expect(callbackMock()).toBe('b');
     expect(callbackMock()).toBe('c');
     expect(callbackMock()).toBe('c');
-  })
+  });
 
   test('Automated Module Mocks', () => {
-    jest.mock()
-  })
-})
+    jest.mock();
+  });
+});
