@@ -1,9 +1,9 @@
 import { Identity, Failure } from './functors';
 
 let toBeIdentity = function(received, expected) {
-  const maybe_expected =
+  const maybeExpected =
     expected == null || Object.is(received.get(), expected);
-  const pass = received instanceof Identity && maybe_expected;
+  const pass = received instanceof Identity && maybeExpected;
   const message = () =>
     pass
       ? 'Matched Identity with value'
@@ -14,9 +14,9 @@ let toBeIdentity = function(received, expected) {
 };
 
 let toBeFailure = function(received, expected) {
-  const maybe_expected =
+  const maybeExpected =
     expected == null || Object.is(received.get(), expected);
-  const pass = received instanceof Failure && maybe_expected;
+  const pass = received instanceof Failure && maybeExpected;
   const message = () =>
     pass
       ? 'Matched Failure with value'
