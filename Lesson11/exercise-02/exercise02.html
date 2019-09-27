@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+
+<body>
+
+Press F12 to see output in the JavaScript console
+
+<script>
+
+const runners = [
+    {name: "Courtney", gender: "F", age: 21, timeSeconds: 1505},
+    {name: "Lelisa",   gender: "M", age: 24, timeSeconds: 1370},
+    {name: "Anthony",  gender: "M", age: 32, timeSeconds: 1538},
+    {name: "Halina",   gender: "F", age: 33, timeSeconds: 1576},
+    {name: "Nilani ",  gender: "F", age: 27, timeSeconds: 1601},
+    {name: "Laferne",  gender: "F", age: 35, timeSeconds: 1572},
+    {name: "Jerome",   gender: "M", age: 22, timeSeconds: 1384},
+    {name: "Yipeng",   gender: "M", age: 29, timeSeconds: 1347},
+    {name: "Jyothi",   gender: "F", age: 39, timeSeconds: 1462},
+    {name: "Chetan",   gender: "M", age: 36, timeSeconds: 1597},
+    {name: "Giuseppe", gender: "M", age: 38, timeSeconds: 1570},
+    {name: "Oksana",   gender: "F", age: 23, timeSeconds: 1617}
+];
+
+const minsSecs = timeSeconds =>
+            Math.floor(timeSeconds / 60) + ":" + 
+            Math.round(timeSeconds % 60).toString().padStart(2, '0');
+            
+const getPacesWithNames = runners => runners.map(runner =>
+    ({name: runner.name, pace: runner.timeSeconds / 3.1}));
+
+const pacesWithNames = getPacesWithNames(runners);
+
+// print each value
+pacesWithNames.forEach(paceObj =>
+    console.log(`name: ${paceObj.name}\tpace: ${minsSecs(paceObj.pace)}`));
+
+// Expected output:
+// => name: Courtney    pace: 8:05
+// => name: Lelisa  pace: 7:22
+// => name: Anthony pace: 8:16
+// => name: Halina  pace: 8:28
+// ...
+
+const addPacesToRunners = runners => runners.map(runner =>
+    ({...runner, pace: runner.timeSeconds / 3.1}));
+
+const pacesWithAllFields = addPacesToRunners(runners);
+pacesWithAllFields.forEach(paceObj => console.log(paceObj));
+
+// Expected output:
+// => Object { name: "Courtney", gender: "F", age: 21, timeSeconds: 1505, pace: 485.4838709677419 }
+// => Object { name: "Lelisa", gender: "M", age: 24, timeSeconds: 1370, pace: 441.93548387096774 }
+// => Object { name: "Anthony", gender: "M", age: 32, timeSeconds: 1538, pace: 496.1290322580645 }
+// => Object { name: "Halina", gender: "F", age: 33, timeSeconds: 1576, pace: 508.38709677419354 }
+// => Object { name: "Nilani ", gender: "F", age: 27, timeSeconds: 1601, pace: 516.4516129032257 }
+// => Object { name: "Laferne", gender: "F", age: 35, timeSeconds: 1572, pace: 507.09677419354836 }
+// => Object { name: "Jerome", gender: "M", age: 22, timeSeconds: 1384, pace: 446.4516129032258 }
+// => Object { name: "Yipeng", gender: "M", age: 29, timeSeconds: 1347, pace: 434.51612903225805 }
+// => Object { name: "Jyothi", gender: "F", age: 39, timeSeconds: 1462, pace: 471.61290322580646 }
+// => Object { name: "Chetan", gender: "M", age: 36, timeSeconds: 1597, pace: 515.1612903225806 }
+// => Object { name: "Giuseppe", gender: "M", age: 38, timeSeconds: 1570, pace: 506.4516129032258 }
+// => Object { name: "Oksana", gender: "F", age: 23, timeSeconds: 1617, pace: 521.6129032258065 }   
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/* Document specific styles */
+#number-guess{
+	width:50px;
+}
+.hidden{
+	display:none;
+}

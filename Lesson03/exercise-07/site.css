@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/* Common styles */
+/* select all elements
+	Exclude padding and border from block element width computations.
+*/
+*{
+	box-sizing:border-box;
+}
+body{
+	background-color:rgba(233,233,233,1);
+	font-family:'Open Sans', Helvetica, Arial, sans-serif;
+	margin:0;
+}
+.heading-section{
+	background-color:rgba(131,131,131,1);
+	color:rgba(255,255,255,1);
+	margin-top:0;
+	margin-bottom:0;
+	padding-top:.75em;
+	padding-bottom:.75em;
+}
+.content-section{
+	padding:1em;
+}
+.content-section p{
+	margin-top:0;
+}
+/*	center text*/
+.center-text{
+	text-align:center;
+}

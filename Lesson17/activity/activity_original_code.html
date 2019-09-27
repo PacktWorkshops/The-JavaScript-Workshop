@@ -1,0 +1,94 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+</head>
+
+<body>
+
+<span id="error" style="color: red"></span>
+
+<table>
+  <tr>
+    <td># of hours:</td>
+    <td><input id="numHours" /></td>
+  </tr>
+  <tr>
+    <td>Pay rate per hour:</td>
+    <td><input id="payRate" /></td>
+    <td>(in ####.## format)</td>
+  </tr>
+  <tr>
+    <td>Worker type:</td>
+    <td colspan="2">
+      <input type="radio" name="workerType" value="standard" checked />
+      Standard (1.5x after 40 hours)
+      <br>
+      <input type="radio" name="workerType" value="no_overtime" />
+      No Overtime
+      <br>
+      <input type="radio" name="workerType" value="double_overtime" />
+      Double Overtime (2x after 50 hours)
+    </td>
+  </tr>
+  <tr>
+    <td><button id="calc_button">Calculate</button></td>
+  </tr>
+</table>
+
+<span id="result"></span>
+
+<script>
+
+document.getElementById("calc_button").addEventListener("click", function() {
+
+    // reset errors and results in case any displayed from last attempt
+    document.getElementById("error").innerHTML = "";
+    document.getElementById("result").innerHTML = "";
+
+    const num_hours = document.getElementById("numHours").value;
+    if (!num_hours.match(/^\d+$/)) {
+      document.getElementById("error").innerHTML = "Invalid # of hours value.";
+      return;
+    }
+    
+    const pay_rate = document.getElementById("payRate").value;
+    if (!pay_rate.match(/^\d+\.\d{2}$/)) {
+      document.getElementById("error").innerHTML = "Invalid pay rate value.";
+      return;
+    }
+    
+    const worker_type =
+        document.querySelector('input[name="workerType"]:checked').value;
+    
+    let result = 0.0;
+    switch(worker_type) {
+        case "standard":
+            if (num_hours < 40) {
+                result = num_hours * pay_rate;
+            } else {
+                result = ((num_hours - 40) * 1.5 + 40) * pay_rate;
+            }
+        break;
+        case "no_overtime":
+            result = num_hours * pay_rate;
+        break;
+        case "double_overtime":
+            if (num_hours < 50) {
+                result = num_hours * pay_rate;
+            } else {
+                result = ((num_hours - 50) * 2 + 50) * pay_rate;
+            }
+        break;
+    
+    }
+
+    document.getElementById("result").innerHTML =
+        `Total pay check: ${result.toFixed(2)}`;
+});
+
+
+</script>
+
+</body>
+
+</html>

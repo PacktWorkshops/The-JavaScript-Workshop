@@ -1,0 +1,25 @@
+{
+    "twitter_username": "@LeoDiCaprio",
+    "first_name": "Leonardo",
+    "last_name": "DiCaprio",
+    "famous_movies": [{
+        "title": "Titanic",
+        "director": "James Cameron",
+        "costars": [
+            "Kate Winslet",
+            "Billy Zane"
+        ],
+        "year": 1997
+    }, {
+        "title": "The Great Gatsby",
+        "director": "Baz Luhrmann",
+        "costars": [
+            "Tobey Maguire",
+            "Carey Mulligan",
+            "Joel Edgerton"
+        ],
+        "year": 2013
+    }],
+    "active": true,
+    "eye_color": null
+}

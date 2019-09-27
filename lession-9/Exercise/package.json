@@ -1,0 +1,15 @@
+{
+  "name": "chatApp",
+  "version": "1.0.0",
+  "description": "Simple chat app built with node.js and socket.io",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Gaurav Mehla",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  }
+}

@@ -1,0 +1,249 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+
+        body {
+            background: DarkCyan;
+        }
+
+        .card {
+            position: relative;
+            width: 80px;
+            height: 120px;
+            border: 1px solid black;
+            background-color: white;
+            font-weight: bold;
+            font-size: 25px;
+            border-radius: 5px;
+            box-shadow: 2px -2px 9px -1px black;
+            margin:15px;
+            padding:2px;
+        }
+
+        .diamonds, .hearts {
+            color: black;
+        }
+
+        .clubs, .spades  {
+            color: red;
+        }
+
+        .top {
+            top: 2px;
+            left: 2px;
+        }
+
+        .bigsuit {
+            text-align: center;
+            font-size: 55px;
+        }
+
+        .bottom {
+            right: 2px;
+            text-align: right;
+        }
+
+        .controlpanel {
+            margin: auto;
+            text-align: center;
+            border: 3px solid #73AD21;
+            padding: 10px;
+            color: white;
+            font-family: "Comic Sans MS";
+        }
+
+        .controlpanel div {
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin-right: 75px;
+            margin-left: 75px;
+            font-family: "Comic Sans MS";
+            font-size: 16px;
+        }
+
+  </style>
+</head>
+
+<body>
+    <div class="controlpanel">
+        <h1>Blackjack!</h1>
+        <div>
+            <button id="playBtn">New Game!</button>
+            <button id="hitBtn" style="display: none">Hit!</button>
+            <button id="stayBtn" style="display: none">Stay</button>
+        </div>
+        <div id="statusMsg" class="center">Press New Game button to start.</div>
+        <div>Total: <span id="totalSpan">0</span></div>
+    </div>
+
+    <div id="cards"></div>
+
+<script>
+
+const suits =
+    () => [
+       { suit: "hearts", symbol: '&#9829;' },    // symbol: '♥'
+       { suit: 'diamonds', symbol: '&#9830;' },  // symbol: '♦'
+       { suit: 'spades', symbol: '&#9824;' },    // symbol: '♠'
+       { suit: 'clubs', symbol: '&#9827;' }      // symbol: '♣'
+    ];
+
+const rankNames =
+    () => ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+const ranks =
+    rankNames => rankNames.map(
+        (rank, index) => ({ rank, value: Math.min(10, index + 1) }));
+
+const createOrderedDeck =
+    (suits, ranks) => suits.reduce(
+        (deck, suit) => {
+            const cards = ranks.map(rank => ({ ...rank, ...suit }));
+            return deck.concat(cards);
+        }, []);
+
+const compose =
+    (...fns) => input => fns.reduceRight((prev, fn) => fn(prev), input);
+
+const pipe = (...fns) => input => fns.reduce((prev, fn) => fn(prev), input);
+
+const map = fx => arr => arr.map(fx);
+
+const addRandom =
+    randomizer => deck => deck.map(card => ({
+        random: randomizer(),
+        card
+    }));
+
+const sortByRandom =
+    deck => [...deck].sort((a, b) => a.random - b.random);
+
+const shuffle =
+    (deck, randomizer) => {
+        const doShuffle = pipe(
+            addRandom(randomizer),
+            sortByRandom,
+            map(card => card.card)
+        );
+        return doShuffle(deck);
+    };
+
+const draw =
+    (deck, n = 1) => [deck.slice(0, n), deck.slice(n)];
+
+const sumCards =
+    cards => cards.reduce((total, card) => total + card.value, 0);
+
+const isBust =
+    total => total > 21;
+
+const isGameOver =
+    (bust, stay) => bust || stay;
+
+const updateCardDisplay =
+    ({ updateHTML }, hand) => {
+        const cardHtml = hand.map((card, index) => 
+            `<div class="card ${card.suit}"
+                style="top: -${index * 120}px; 
+                       left: ${index * 100}px;">
+                <div class="top rank">${card.rank}</div>
+                <div class="bigsuit">${card.symbol}</div>
+                <div class="bottom rank">${card.rank}</div>
+             </div>`);
+        updateHTML("cards", cardHtml.join(""));
+    };
+
+const showOrHide =
+    (updateStyle, element, hide) =>
+        updateStyle(element, "display", hide ? "none" : "");
+
+const updateStatusDisplay =
+    ({ updateStyle, updateHTML }, hand, stay) => {
+        const total = sumCards(hand);
+        updateHTML("totalSpan", total);
+
+        const bust = isBust(total);
+        const gameover = isGameOver(bust, stay);
+
+        showOrHide(updateStyle, "playBtn", !gameover);
+        showOrHide(updateStyle, "hitBtn", gameover);
+        showOrHide(updateStyle, "stayBtn", gameover);
+
+        let statusMsg = gameover ?
+            "Game over.  Press New Game button to start again." :
+            "Select Hit or Stay";
+
+        statusMsg = bust ? "You went bust!!! " + statusMsg : statusMsg;
+
+        updateHTML("statusMsg", statusMsg);
+    };
+
+const playHandler = (randomizer, { getState, setState }) => () => {
+    const orderedDeck = createOrderedDeck(suits(), ranks(rankNames()));
+    let gameDeck = shuffle(orderedDeck, randomizer);
+    [hand, gameDeck] = draw(gameDeck, 2);
+    setState(hand, gameDeck);
+};
+
+const hitHandler = ({ getState, setState }) => () => {
+    [hand, gameDeck] = getState();
+    [card, gameDeck] = draw(gameDeck, 1);
+    setState(hand.concat(card), gameDeck);
+};
+
+const stayHandler = ({ getState, setState }) => () => {
+    [hand, gameDeck] = getState();
+    setState(hand, gameDeck, true);
+};
+
+
+
+// impure functions
+
+const byId =
+    elementId => document.getElementById(elementId);
+
+const updateHTML =
+    (elementId, html) => byId(elementId).innerHTML = html;
+
+const updateStyle =
+    (elementId, style, value) => byId(elementId).style[style] = value;
+
+const randomizer =
+    Math.random;
+
+const dom = { updateHTML, updateStyle };
+
+const startGame = (state) => {
+    byId("playBtn").addEventListener("click", playHandler(randomizer, state));
+    byId("hitBtn").addEventListener("click", hitHandler(state));
+    byId("stayBtn").addEventListener("click", stayHandler(state));
+}
+
+const createState = (dom) => {
+    let _state;
+
+    const getState = () => [..._state];
+
+    const setState =
+        (hand, gameDeck, stay = false) => {
+            _state = [hand, gameDeck];
+
+            updateCardDisplay(dom, hand);
+            updateStatusDisplay(dom, hand, stay);
+        };
+
+    return { getState, setState };
+}
+
+startGame(createState(dom));
+
+</script>
+</body>
+
+</html>

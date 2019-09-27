@@ -1,0 +1,149 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+</head>
+
+<body>
+
+<span id="error" style="color: red"></span>
+
+<table>
+  <tr>
+    <td># of hours:</td>
+    <td><input id="numHours" /></td>
+  </tr>
+  <tr>
+    <td>Pay rate per hour:</td>
+    <td><input id="payRate" /></td>
+    <td>(in ####.## format)</td>
+  </tr>
+  <tr>
+    <td>Worker type:</td>
+    <td colspan="2">
+      <input type="radio" name="workerType" value="standard" checked />
+      Standard (1.5x after 40 hours)
+      <br>
+      <input type="radio" name="workerType" value="no_overtime" />
+      No Overtime
+      <br>
+      <input type="radio" name="workerType" value="double_overtime" />
+      Double Overtime (2x after 50 hours)
+    </td>
+  </tr>
+  <tr>
+    <td><button id="calc_button">Calculate</button></td>
+  </tr>
+</table>
+
+<span id="result"></span>
+
+<script>
+
+document.getElementById("calc_button").addEventListener("click", processForm);
+
+function processForm() {
+    resetErrorsAndResults();
+    const formFields = getFormFields();
+
+    const validationError = formFields.validate();
+    if (validationError) {
+        displayError(validationError);
+        return;
+    }
+
+    const result = doCalculation(formFields);
+    displayResult(result);
+}
+
+function resetErrorsAndResults() {
+    document.getElementById("error").innerHTML = "";
+    document.getElementById("result").innerHTML = "";
+}
+
+class FormFields {
+    constructor(numHours, payRate, workerType) {
+        this.numHours = numHours;
+        this.payRate = payRate;
+        this.workerType = workerType;
+    }
+
+    validate() {
+        let validationError = this.validateNumHours();
+        if (validationError) {
+            return validationError;
+        }
+
+        validationError = this.validatePayRate();
+        if (validationError) {
+            return validationError;
+        }
+    }
+
+    validateNumHours() {
+        if (!this.numHours.match(/^\d+$/)) {
+            return "Invalid # of hours value.";
+        }
+    }
+
+    validatePayRate() {
+        if (!this.payRate.match(/^\d+\.\d{2}$/)) {
+            return "Invalid pay rate value.";
+        }
+    }
+}
+
+function getFormFields() {
+    const numHours = document.getElementById("numHours").value;
+    const payRate = document.getElementById("payRate").value;
+    const workerType =
+        document.querySelector('input[name="workerType"]:checked').value;
+
+    return new FormFields(numHours, payRate, workerType);
+}
+
+function displayError(error) {
+    document.getElementById("error").innerHTML = error;
+}
+
+const calculateFunctions = {
+    "standard": calculateStandardWorkerPay,
+    "no_overtime": calculateNoOvertimeWorkerPay,
+    "double_overtime": calculateDoubleOvertimeWorkerPay
+};
+
+function doCalculation(formFields) {
+
+    // determine function to use for calculation based on worker type
+    const calculateFunction = calculateFunctions[formFields.workerType];
+
+    return calculateFunction(formFields.numHours, formFields.payRate);
+}
+
+function calculateStandardWorkerPay(numHours, payRate) {
+    if (numHours < 40) {
+        return numHours * payRate;
+    }
+    return ((numHours - 40) * 1.5 + 40) * payRate;
+}
+
+function calculateNoOvertimeWorkerPay(numHours, payRate) {
+    return numHours * payRate;
+}
+
+function calculateDoubleOvertimeWorkerPay(numHours, payRate) {
+    if (numHours < 50) {
+        return numHours * payRate;
+    }
+    return ((numHours - 50) * 2 + 50) * payRate;
+}
+
+function displayResult(result) {
+    document.getElementById("result").innerHTML =
+        `Total pay check: ${result.toFixed(2)}`;
+}
+
+</script>
+
+</body>
+
+</html>

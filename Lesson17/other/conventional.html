@@ -1,0 +1,55 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+</head>
+
+<body>
+
+Enter a phone number in format XXX-XXX-XXXX:
+<input type="text" id="phone">
+<div id="msg"></div>
+
+<script>
+
+var phone = document.getElementById("phone");
+phone.addEventListener("input", validatePhoneNumber);
+
+function isDigit(character) {
+    return character >= '0' && character <= '9';
+}
+
+function validatePhoneNumber() {
+
+    var phoneNum = phone.value.trim();
+   
+    // check if phone number matches format [2-9]XX-XXX-XXXX
+    var valid =
+        phoneNum.length == 12 &&
+        phoneNum.charAt(0) >= '2' &&
+        isDigit(phoneNum.charAt(0)) &&
+        isDigit(phoneNum.charAt(1)) &&
+        isDigit(phoneNum.charAt(2)) &&
+	   
+        phoneNum.charAt(3) == '-' &&
+	   
+        isDigit(phoneNum.charAt(4)) &&
+        isDigit(phoneNum.charAt(5)) &&
+        isDigit(phoneNum.charAt(6)) &&
+	   
+        phoneNum.charAt(7) == '-' &&
+	   
+        isDigit(phoneNum.charAt(8)) &&
+        isDigit(phoneNum.charAt(9)) &&
+        isDigit(phoneNum.charAt(10)) &&
+        isDigit(phoneNum.charAt(11));
+
+    var validMsg = "phone number entered is " +
+        (valid ? "valid." : "INVALID!!!");
+    document.getElementById("msg").innerHTML = validMsg;
+}
+
+</script>
+
+</body>
+
+</html>

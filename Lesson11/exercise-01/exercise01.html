@@ -1,0 +1,66 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+
+<body>
+
+Press F12 to see output in the JavaScript console
+
+<script>
+
+    const string1 = "Hello, World!"; 
+    const string2 = string1.substring(7, 12);
+       
+    console.log(`string1: ${string1}`);
+    console.log(`string2: ${string2}`);
+    
+    // Expected output:
+    // => string1: Hello World!
+    // => string2: World
+    
+    
+    const number1 = 500;
+    const number2 = number1 / 2;
+       
+    console.log(`number1: ${number1}`); 
+    console.log(`number2: ${number2}`);
+    
+    // Expected output:
+    // => number1: 500
+    // -> number2: 250
+    
+    
+    const array1 = ['one', 'two', 'three'];
+    const array2 = array1;
+    array2.push('four');
+       
+    console.log(`array1: ${array1}`);
+    console.log(`array2: ${array2}`);
+    
+    // Expected output:
+    // => array1: one,two,three,four
+    // => array2: one,two,three,four
+    
+    
+    const actor1 = {
+        name: 'Sheldon',
+        show: 'BB Theory'
+    };
+       
+    const actor2 = actor1;
+    actor2.name = 'Leonard';
+       
+    console.log("actor1:", actor1);
+    console.log("actor2:", actor2);
+    
+    // Expected output:
+    // => actor1: { name: "Leonard", show: "Big Bang Theory" }
+    // => actor2: { name: "Leonard", show: "Big Bang Theory" }
+    
+
+</script>
+
+</body>
+
+</html>
