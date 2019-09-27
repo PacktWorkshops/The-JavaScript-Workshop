@@ -27,7 +27,7 @@
 </head>
 <body>
     <h1>To-Do List</h1>
-    <ol>
+    <ol id="todo-list">
         <li>Wash Laundry</li>
         <li>Clean Silver</li>
         <li>Write Letters</li>
@@ -36,7 +36,13 @@
         <li>Prepare Dinner</li>
     </ol>
     <script>
-        // JavaScript here!
-    </script>
+        var parentContainer = document.getElementById('todo-list');
+        console.log('Beginning List Count: ' + parentContainer.children.length);
+        var newItem = document.createElement('li');
+        newItem.innerText = "Research Wines";
+        parentContainer.appendChild(newItem);
+        parentContainer.lastChild.style.color = "crimson";
+        console.log('End List Count: ' + parentContainer.children.length);
+    </script> 
 </body>
 </html>
