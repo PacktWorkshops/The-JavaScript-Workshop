@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "prettier": "1.18.2"
+  },
+  "scripts": {
+    "prettify": "prettier --single-quote --trailing-comma es5 --write './lesson-8/**/*.js'"
+  }
+}

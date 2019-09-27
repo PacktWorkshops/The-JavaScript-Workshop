@@ -11,6 +11,6 @@ osciA.start();
 osciB.start();
 
 document.addEventListener('mousemove', event => {
-  osciA.frequency.value = event.clientY; 
+  osciA.frequency.value = event.clientY;
   osciB.frequency.value = event.clientX;
 });
