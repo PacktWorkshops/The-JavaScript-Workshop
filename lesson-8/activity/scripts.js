@@ -1,8 +1,7 @@
 // scripts.js
 
 document.addEventListener('click', () => {
-
-  // initialise canvas and related variables 
+  // initialise canvas and related variables
   let canvas = document.getElementById('canvas');
   let canvasContext = canvas.getContext('2d');
   let width = window.innerWidth;
@@ -29,7 +28,7 @@ document.addEventListener('click', () => {
   // set oscillator freuquency from mounse's x-position
   document.addEventListener('mousemove', event => {
     osciA.frequency.value = event.clientX;
-    mouseY = event.clientY
+    mouseY = event.clientY;
   });
 
   // start drawing
@@ -39,16 +38,16 @@ document.addEventListener('click', () => {
   function draw() {
     let drawing = window.requestAnimationFrame(draw); // Repeat the drawing function on every animation frame
     analyser.getFloatTimeDomainData(waveform);
-    canvasContext.clearRect(0,0,canvas.width,canvas.height); // empty the canvas, so we don't get arcs drawn on top of each other
+    canvasContext.clearRect(0, 0, canvas.width, canvas.height); // empty the canvas, so we don't get arcs drawn on top of each other
     canvasContext.beginPath();
 
     // plot a section of the circle for each part of the waveform
-    for(let i = 0; i < waveform.length; i++) {
-        let radius = Math.abs(((width / 2) - mouseY) + (waveform[i] * 15));
-        let startAngle = ((2 / waveform.length) * i) * Math.PI;
-        let endAngle = ((2 / waveform.length) * i) * Math.PI;
-        canvasContext.arc(centerX, centerY, radius, startAngle, endAngle);
+    for (let i = 0; i < waveform.length; i++) {
+      let radius = Math.abs(width / 2 - mouseY + waveform[i] * 15);
+      let startAngle = (2 / waveform.length) * i * Math.PI;
+      let endAngle = (2 / waveform.length) * i * Math.PI;
+      canvasContext.arc(centerX, centerY, radius, startAngle, endAngle);
     }
     canvasContext.stroke();
-  };
+  }
 });

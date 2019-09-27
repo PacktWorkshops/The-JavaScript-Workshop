@@ -1,11 +1,17 @@
-// storage.js 
-if (!window.localStorage) return document.getElementById('warning').style.display = 'block';
+// storage.js
+if (!window.localStorage) {
+  return (document.getElementById('warning').style.display = 'block');
+}
 let firstName = localStorage.getItem('firstName');
 let lastName = localStorage.getItem('lastName');
 let inputFName = document.getElementById('first-name');
 let inputLName = document.getElementById('last-name');
-if (firstName) inputFName.value = firstName;
-if (lastName) inputLName.value = lastName;
+if (firstName) {
+  inputFName.value = firstName;
+}
+if (lastName) {
+  inputLName.value = lastName;
+}
 inputFName.addEventListener('input', event => {
   localStorage.setItem('firstName', event.target.value);
 });
