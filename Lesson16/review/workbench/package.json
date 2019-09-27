@@ -9,9 +9,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-env": "^7.6.2",
-    "babel-jest": "^24.9.0",
-    "jest": "^24.9.0"
+    "@babel/preset-env": "^7.5.5",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0"
   },
   "jest": {
     "clearMocks": true,
@@ -23,13 +23,18 @@
         "@babel/env",
         {
           "targets": {
-            "browsers": [
-              "last 2 versions"
-            ]
+            "edge": "17",
+            "firefox": "60",
+            "chrome": "67",
+            "safari": "11.1"
           },
           "useBuiltIns": "usage"
         }
       ]
     ]
+  },
+  "dependencies": {
+    "core-js": "^2.6.1",
+    "core-js3": "npm:core-js@^3.0.0"
   }
 }
