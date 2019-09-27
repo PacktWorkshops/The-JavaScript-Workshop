@@ -1,7 +1,7 @@
-test("boolean", () => {
+test('boolean', () => {
   expect(1 < 2).toBeTruthy();
   expect(2 < 1).toBeFalsy();
-  expect("some string").toBeTruthy();
+  expect('some string').toBeTruthy();
   expect(1).toBeLessThan(4);
   expect(2).toBeLessThanOrEqual(3);
   expect(3).toBeGreaterThan(2);
@@ -14,27 +14,27 @@ test("boolean", () => {
   expect({}).not.toBeInstanceOf(Array);
 });
 
-test("object", () => {
-  expect({ key: "value" }).toHaveProperty("key");
-  expect({ key: "value" }).toHaveProperty("key", "value");
-  expect({ key: "value" }).not.toHaveProperty("prop");
+test('object', () => {
+  expect({ key: 'value' }).toHaveProperty('key');
+  expect({ key: 'value' }).toHaveProperty('key', 'value');
+  expect({ key: 'value' }).not.toHaveProperty('prop');
   let obj = {
     first: {
       second: {
-        third: 5
-      }
-    }
+        third: 5,
+      },
+    },
   };
-  expect(obj).toHaveProperty("first");
+  expect(obj).toHaveProperty('first');
   let first = obj.first;
-  expect(first).toHaveProperty("second");
+  expect(first).toHaveProperty('second');
   let second = first.second;
-  expect(second).toHaveProperty("third", 5);
-  expect(obj).toHaveProperty("first.second.third", 5);
-  expect(obj).toHaveProperty(["first", "second", "third"], 5);
+  expect(second).toHaveProperty('third', 5);
+  expect(obj).toHaveProperty('first.second.third', 5);
+  expect(obj).toHaveProperty(['first', 'second', 'third'], 5);
 });
 
-test("array", () => {
+test('array', () => {
   let arr = [1, 2, 3];
   expect(arr.length).toBe(3); // incorrect form
   expect(arr).toHaveLength(3); // accepted form
@@ -49,7 +49,7 @@ test("array", () => {
   expect(arr3).not.toContainEqual({ one: 1, two: { three: 3 } }); // fails
 });
 
-test("function", () => {
+test('function', () => {
   let func = jest.fn(x => x + x);
   func(2);
   expect(func).toHaveBeenCalled();

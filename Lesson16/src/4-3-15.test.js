@@ -10,10 +10,10 @@ describe('4.3.15 - Mocking Tests', () => {
     expect(setTimeout).toHaveBeenCalledTimes(1);
     expect(setTimeout).toHaveBeenLastCalledWith(callback, 1000);
     expect(callback).toHaveBeenCalledTimes(1);
-  })
+  });
 
   test('Functions Mocks', () => {
-    const callbackFn = () => console.log("I am a callback");
+    const callbackFn = () => console.log('I am a callback');
     const callbackMock = jest.fn(callbackFn);
 
     callbackMock.mockReturnValueOnce('a');
@@ -23,9 +23,9 @@ describe('4.3.15 - Mocking Tests', () => {
     expect(callbackMock()).toBe('b');
     expect(callbackMock()).toBe('c');
     expect(callbackMock()).toBe('c');
-  })
+  });
 
   test('Automated Module Mocks', () => {
-    jest.mock()
-  })
-})
+    jest.mock();
+  });
+});

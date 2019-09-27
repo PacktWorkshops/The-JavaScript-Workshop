@@ -1,11 +1,11 @@
-test("Failing async call", () => {
+test('Failing async call', () => {
   expect.hasAssertions();
   setTimeout(() => {
     expect(true).toBeTruthy();
   }, 1000);
 });
 
-test("Passing async call", () => {
+test('Passing async call', () => {
   expect.hasAssertions();
   function later(delay) {
     return new Promise(function(resolve) {

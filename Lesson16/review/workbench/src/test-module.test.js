@@ -1,8 +1,8 @@
-describe("test wrapper", () => {
-  test("this should fail", () => {
+describe('test wrapper', () => {
+  test('this should fail', () => {
     expect(false).toBeTruthy();
   });
-  test("this should pass", () => {
+  test('this should pass', () => {
     expect(true).toBeTruthy();
   });
 });
@@ -15,11 +15,11 @@ beforeAll(() => {
 afterAll(() => {
   let finished = new Date();
   console.log(
-    "Tests took",
+    'Tests took',
     finished.getTime() - started.getTime(),
-    "milliseconds"
+    'milliseconds'
   );
 });
-test("some test", () => {
+test('some test', () => {
   expect(true).toBeTruthy();
 });
