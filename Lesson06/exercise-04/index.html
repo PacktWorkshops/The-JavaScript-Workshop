@@ -1,0 +1,29 @@
+<html>
+  <body>
+    <div id="container">
+      <a href="https://google.com">Google</a>
+      <a href="https://bing.com">Bing</a>
+      <a href="https://yahoo.com">Yahoo</a>
+    </div>
+    <div id="message"></div>
+  </body>
+  <script>
+    var container = document.getElementById("container"),
+        links = container.children,
+        msg = document.getElementById("message");
+    container.addEventListener("click", function(ev) {
+      msg.innerHTML = `${ev.target.text} clicked`;
+      console.log(`${ev.target.text} clicked`);
+    });
+    links[0].addEventListener("click", function(ev) {
+      ev.preventDefault();
+    });
+    links[1].addEventListener("click", function(ev) {
+      ev.stopPropagation();
+    });
+    links[2].addEventListener("click", function(ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+    });
+  </script>
+</html>

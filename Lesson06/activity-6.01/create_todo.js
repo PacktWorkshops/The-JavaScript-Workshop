@@ -36,6 +36,8 @@ function createHandler(ev) {
       updated_at = new Date(),
       id = created_at.getTime(),
       completed = false;
-  document.dispatchEvent(new CustomEvent("CREATE", {detail: {id, title, description, completed, created_at, updated_at}}));
+  document.dispatchEvent(new CustomEvent("CREATE", {
+      detail: {id, title, description, completed, created_at, updated_at}
+    }));
   return false;
 }
