@@ -4,7 +4,7 @@ test('Imperative Example', () => {
   function averageWordLengthInSentence(sentence) {
     if (typeof sentence != "string")
       return;
-    let words = sentence.split(" "); // match(/\S+/g) || [];
+    let words = sentence.split(" ");
     let count = [];
     let sum = 0;
     for (let i = 0; i < words.length; i++) {
