@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+
+        body {
+            background: DarkCyan;
+        }
+
+        .card {
+            position: relative;
+            width: 80px;
+            height: 120px;
+            border: 1px solid black;
+            background-color: white;
+            font-weight: bold;
+            font-size: 25px;
+            border-radius: 5px;
+            box-shadow: 2px -2px 9px -1px black;
+            margin:15px;
+            padding:2px;
+        }
+
+        .diamonds, .hearts {
+            color: black;
+        }
+
+        .clubs, .spades  {
+            color: red;
+        }
+
+        .top {
+            top: 2px;
+            left: 2px;
+        }
+
+        .bigsuit {
+            text-align: center;
+            font-size: 55px;
+        }
+
+        .bottom {
+            right: 2px;
+            text-align: right;
+        }
+
+        .controlpanel {
+            margin: auto;
+            text-align: center;
+            border: 3px solid #73AD21;
+            padding: 10px;
+            color: white;
+            font-family: "Comic Sans MS";
+        }
+
+        .controlpanel div {
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin-right: 75px;
+            margin-left: 75px;
+            font-family: "Comic Sans MS";
+            font-size: 16px;
+        }
+
+  </style>
+</head>
+
+<body>
+    <div class="controlpanel">
+        <h1>Blackjack!</h1>
+        <div>
+            <button id="playBtn">New Game!</button>
+            <button id="hitBtn" style="display: none">Hit!</button>
+            <button id="stayBtn" style="display: none">Stay</button>
+        </div>
+        <div id="statusMsg" class="center">Press New Game button to start.</div>
+        <div>Total: <span id="totalSpan">0</span></div>
+    </div>
+
+    <div id="cards"></div>
+
+<script>
+  // Add your code for assignment solution here
+</script>
+</body>
+
+</html>
