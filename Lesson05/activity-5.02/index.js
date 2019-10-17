@@ -22,7 +22,7 @@ function modelStateChange(state, action, data) {
       return state
     }
   }
-  if (action == "REMOVE") {
+  if (action == "MODIFY") {
     let data = modelFindIndex(todos, ev.detail);
     if (i > -1) {
       state = state.splice(i, 1);

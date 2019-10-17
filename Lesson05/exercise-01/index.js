@@ -18,6 +18,6 @@ console.log(i);  // ->   10
 i = 10;
 if (true) {
     var i = 15;
-    console.log(i);
+    console.log(i); // ->   15
 }
-// ->  Uncaught SyntaxError: Identifier 'i' has already been declared
+console.log(i); // ->   15
