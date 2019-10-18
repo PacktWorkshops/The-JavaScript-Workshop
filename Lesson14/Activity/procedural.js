@@ -1,34 +1,34 @@
 let historyList = [];
 
-function add(a, b){
-	historyList.push(['ADD', a, b]);
-	return a+b;
+function add(a, b) {
+  historyList.push(['ADD', a, b]);
+  return a + b;
 }
 
-function subtract(a, b){
-	historyList.push(['SUB', a, b]);
-	return a-b;
+function subtract(a, b) {
+  historyList.push(['SUB', a, b]);
+  return a - b;
 }
 
-function multiply(a, b){
-	historyList.push(['MUL', a, b]);
-	return a*b;
+function multiply(a, b) {
+  historyList.push(['MUL', a, b]);
+  return a * b;
 }
 
-function divide(a, b){
-	historyList.push(['DIV', a, b]);
-	return a/b;
+function divide(a, b) {
+  historyList.push(['DIV', a, b]);
+  return a / b;
 }
 
-function pow(a, b){
-	historyList.push(['POW', a, b]);
-	return Math.pow(a, b);
+function pow(a, b) {
+  historyList.push(['POW', a, b]);
+  return Math.pow(a, b);
 }
 
-function history(){
-	historyList.map((command, index)=>{
-		console.log(index+1+'.', command.join(' '));
-	})
+function history() {
+  historyList.map((command, index) => {
+    console.log(index + 1 + '.', command.join(' '));
+  });
 }
 
 console.log('ADD 2 3 :', add(2, 3));
