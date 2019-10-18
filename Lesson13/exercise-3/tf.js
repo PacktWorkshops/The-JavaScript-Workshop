@@ -4,10 +4,11 @@ const statusElem = document.getElementById('status');
 const classifier = knnClassifier.create();
 let trainModel;
 
+initWebcam();
+
 async function classifyImage() {
   statusElem.innerText = 'Loading MobileNet...';
   const model = await mobilenet.load();
-  initWebcam();
 
   trainModel = classId => {
     const activation = model.infer(videoElem, 'conv_preds');
@@ -34,4 +35,7 @@ async function initWebcam() {
     }
   }
 }
-classifyImage();
+
+videoElem.onloadeddata = function() {
+  classifyImage();
+}
