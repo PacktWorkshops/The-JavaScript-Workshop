@@ -244,8 +244,6 @@ function getSeedData() {
     dataByClass[seedClass].push(data);
     targetsByClass[seedClass].push(seedClass);
   }
-  console.log(dataByClass);
-  console.log(targetsByClass);
   const trainingXs = [];
   const trainingYs = [];
   const testingXs = [];
@@ -264,4 +262,29 @@ function getSeedData() {
   ];
 }
 
-console.log(getSeedData());
+async function trainModel(xTrain, yTrain, xTest, yTest) {
+  const model = tf.sequential();
+  model.add(tf.layers.dense(
+    {units: 7, activation: 'sigmoid', inputShape: [xTrain.shape[1]]} // Sigmoid activation function for all inputs will provide output between 0 and 1
+  ));
+  model.add(tf.layers.dense(
+    {units: 3, activation: 'softmax'}
+  ));
+  model.compile({
+    optimizer: tf.train.adam(0.01),
+    loss: 'categoricalCrossentropy',
+    metrics: ['accuracy']
+  });
+
+  await model.fit(xTrain, yTrain, {
+    epochs: 40,
+    validationData: [xTest, yTest],
+    callbacks: {
+      onEpochEnd: async(epoch, logs) => {
+        console.log(`Epoch: ${epoch}, Logs: ${logs.loss}`);
+        await tf.nextFrame();
+      }
+    }
+  });
+  return model;
+};
