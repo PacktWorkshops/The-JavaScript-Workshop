@@ -1,0 +1,60 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<script src="players.js"></script>
+</head>
+
+<body>
+
+Arsenal Player Honors:
+<ul id="honorsList"></ul>
+
+<script>
+
+async function myFetch(url, params) {
+    if (params) {
+        url += "?" + encodeParams(params);
+    }
+    let response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(response.status);
+    }
+    return response.json()
+}
+
+(async () => {
+    try {
+        let leagueData = await myFetch(ALL_LEAGUES_URL);
+        let teamData = await getTeamsInLeague(leagueData, LEAGUE_NAME);
+        let playerData = await getPlayersOnTeam(teamData, TEAM_NAME);
+        await getPlayerHonors(playerData);
+    } catch (err) {
+        console.log("caught error: " + err);
+    }
+})();
+
+async function getTeamsInLeague(leagueData, leagueName) {
+    const leagueId = findLeagueId(leagueData, leagueName);
+    return myFetch(ALL_TEAMS_URL, {id: leagueId});
+}
+
+async function getPlayersOnTeam(teamData, teamName) {
+   const teamId = findTeamId(teamData, teamName);
+   return myFetch(ALL_PLAYERS_URL, {id: teamId});
+}
+
+async function getPlayerHonors(playerData) {
+    const playerPromises = playerData.player.map(async player =>
+        myFetch(PLAYER_HONORS_URL, {id: player.idPlayer}));
+
+    for (const playerPromise of playerPromises) {
+        printHonors(await playerPromise);
+    }
+}
+
+</script>
+
+</body>
+
+</html>

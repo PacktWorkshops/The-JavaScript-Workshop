@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<script src="players.js"></script>
+</head>
+
+<body>
+
+Arsenal Player Honors:
+<ul id="honorsList"></ul>
+
+<script>
+
+myFetch(ALL_LEAGUES_URL)
+  .then(leagueData => {
+      const leagueId = findLeagueId(leagueData, LEAGUE_NAME);
+      return myFetch(ALL_TEAMS_URL, {id: leagueId});
+  })
+  .then(teamData => {
+      const teamId = findTeamId(teamData, TEAM_NAME);
+      return myFetch(ALL_PLAYERS_URL, {id: teamId});
+  })
+  .then(playerData => {
+      const honorReqests = playerData.player.map(player =>
+          myFetch(PLAYER_HONORS_URL, {id: player.idPlayer}));
+      return Promise.all(honorReqests);
+  })
+  .then(honorResponses => honorResponses.forEach(printHonors))
+  .catch(error => console.log(error));
+
+</script>
+
+</body>
+
+</html>
