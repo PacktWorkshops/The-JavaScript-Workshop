@@ -4,4 +4,4 @@ function stackOverflow() {
   stackOverflow();
 }
 setTimeout(() => console.log(frameCount), 500)
-stackOverfow()
+stackOverflow()

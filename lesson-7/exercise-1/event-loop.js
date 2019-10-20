@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     resultSpan.innerText = `The result is ${result}`;
   };
+  
+  showStatus('Calculation running, please wait... Maybe for quite a while...');
+  doCalculation();
+  showStatus('Calculation finished, here is the result:');
+  
 });
-
-showStatus('Calculation running, please wait... Maybe for quite a while...');
-doCalculation();
-showStatus('Calculation finished, here is the result:');
-
 
 // Solution:
 

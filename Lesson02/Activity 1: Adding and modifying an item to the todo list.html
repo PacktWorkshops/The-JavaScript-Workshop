@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>To-Do List</title>
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Bowlby+One+SC" rel="stylesheet">
+    <style>
+        body {
+            background-color:rgb(37, 37, 37);
+            color:aliceblue;
+            padding:2rem;
+            margin:0;
+            font-family: 'Architects Daughter', cursive;
+            font-size: 12px;
+        }
+        h1 {
+            font-family: 'Bowlby One SC', cursive;
+            font-size: 2.8rem;
+            color: cornflowerblue;
+            margin:0;
+        }
+        ol {
+            font-family: 'Architects Daughter', cursive;
+            font-size: 1.6rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <ol id="todo-list">
+        <li>Wash Laundry</li>
+        <li>Clean Silver</li>
+        <li>Write Letters</li>
+        <li>Purchase Groceries</li>
+        <li>Retrieve Mail</li>
+        <li>Prepare Dinner</li>
+    </ol>
+    <script>
+        var parentContainer = document.getElementById('todo-list');
+        console.log('Beginning List Count: ' + parentContainer.children.length);
+        var newItem = document.createElement('li');
+        newItem.innerText = "Research Wines";
+        parentContainer.appendChild(newItem);
+        parentContainer.lastChild.style.color = "crimson";
+        console.log('End List Count: ' + parentContainer.children.length);
+    </script> 
+</body>
+</html>

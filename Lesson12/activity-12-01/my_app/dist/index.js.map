@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.ts"],"names":[],"mappings":";AACA,aADA,IAAM,EAAiB,gBACvB,QAAQ,IAAI","file":"index.js","sourceRoot":"../src","sourcesContent":["const message:string = \"Hello, World!\";\nconsole.log(message);\n"]}

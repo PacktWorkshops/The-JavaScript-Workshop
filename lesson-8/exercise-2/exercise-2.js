@@ -1,8 +1,16 @@
-let context = new AudioContext(); // create the audio context
-let gain = context.createGain(); // create a gain node
-gain.connect(context.destination); // connect the gain node to the context destination
-let osci = context.createOscillator(); // create an oscillator node
-osci.type = 'sawtooth'; // set the oscillation type
-osci.frequency.value = 100; // set the oscillation frequency
-osci.connect(gain); // connect the oscillator node to the gain node
-osci.start(); // start the oscillation node playing
+// create the audio context
+let context = new AudioContext();
+// create a gain node
+let gain = context.createGain();
+// connect the gain node to the context destination
+gain.connect(context.destination);
+// create an oscillator node
+let osci = context.createOscillator();
+// set the oscillation type
+osci.type = 'sawtooth';
+// set the oscillation frequency
+osci.frequency.value = 100;
+// connect the oscillator node to the gain node
+osci.connect(gain);
+// start the oscillation node playing
+osci.start();

@@ -8,12 +8,12 @@ dbRequest.onsuccess = event => {
   cursorReq.onsuccess = e => {
     let cursor = e.target.result;
     if (cursor) {
-      console.log(cursor.value)
+      console.log(cursor.value);
       if (!cursor.value.completed) outstandingTodos.push(cursor.value);
       cursor.continue();
     } else {
       console.log('end of entries');
-      console.log(outstandingTodos); 
-    };
+      console.log(outstandingTodos);
+    }
   };
 };
