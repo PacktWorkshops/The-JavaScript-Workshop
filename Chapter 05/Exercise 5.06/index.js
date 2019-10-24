@@ -8,7 +8,7 @@ function sendEmail(name, age, comments) {
   var body = `A user has posted a comment from the website:
   name: ${name}
   age: ${age}
-  status: ${(age < 18) ? `${name} is a child` : `${name} is an adult`}
+  status: ${(age < 18) ? `${name} is not a valid user` : `${name} is a valid user`}
   comments: ${comments}`;
   return body;
 }
