@@ -1,0 +1,26 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<script>
+
+$.ajax({
+    method: 'post',
+    dataType: 'json',
+    url: 'https://reqres.in/api/users',
+    data: {
+        "name": "Beyonce Knowles",
+        "occupation": "artist"
+    },
+    success: function (data) {
+        console.log("Returned id " + data.id + 
+                    ", createdAt " + data.createdAt);
+        console.log(data);
+    }
+});
+
+</script>
+
+<body>
