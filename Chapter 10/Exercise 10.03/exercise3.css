@@ -1,0 +1,22 @@
+#game_table {
+    display: none;
+    border: 1px solid;
+}
+
+#game_table td {
+    text-align: right;
+}
+
+#away_score, #home_score {
+    font-size: 24px;
+}
+
+.team_banner {
+    width: 275px;
+    height: 50px;
+}
+
+.winning_score {
+   color: green;
+   font-weight: bold;
+}
