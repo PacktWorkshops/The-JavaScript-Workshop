@@ -43,7 +43,8 @@ function printHonors(honorData) {
         var playerLI = document.createElement("li");
         document.getElementById("honorsList").append(playerLI);
 
-        var playerName = document.createTextNode(honorData.honors[0].strPlayer);
+        var playerName =
+            document.createTextNode(honorData.honors[0].strPlayer);
         playerLI.appendChild(playerName);
 
         var honorsUL= document.createElement("ul");
