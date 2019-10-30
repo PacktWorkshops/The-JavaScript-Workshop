@@ -18,12 +18,9 @@ shuffleButtonEle.addEventListener('click', shuffleButtonClicked);
  * @param {HTMLUListElement || HTMLOListElement} listEle - HTML list UL or OL element
  * @param {array} listItems - One dimension array of strings
 */
-async function replaceListElements(listEle, listItems){
-	// ANIME SOLUTION
-	anime({
-		targets: listEle,
-		translateX: -1000
-	});
+function replaceListElements(listEle, listItems){
+	// VELOCITY SOLUTION
+	Velocity(listEle, { opacity: 0 }, { duration: 0 })
 	listEle.innerHTML = "";
 
 
@@ -33,14 +30,8 @@ async function replaceListElements(listEle, listItems){
 		listEle.appendChild(liEle)
 	}
 
-	// ANIME SOLUTION
-	setTimeout(() => {
-			anime({
-				targets: listEle,
-				translateX: 0,
-				easing: "easeOutExpo"
-			})
-	}, 200)
+	// VELOCITY SOLUTION
+	Velocity(listEle, { opacity: 1 }, { duration: 500 })
 }
 /**
  * Shuffles array elements

@@ -8,8 +8,7 @@ let todoList = [
 	"Prepare Dinner"
 ];
 // The todo list element
-// JQUERY SOLUTION
-let todoEle = $('#todo-list');
+let todoEle = document.getElementById('todo-list');
 // The shuffle button element.
 let shuffleButtonEle = document.getElementById('shuffle-button');
 // Add event listener function for the shuffle button element.
@@ -19,22 +18,29 @@ shuffleButtonEle.addEventListener('click', shuffleButtonClicked);
  * @param {HTMLUListElement || HTMLOListElement} listEle - HTML list UL or OL element
  * @param {array} listItems - One dimension array of strings
 */
-async function replaceListElements(listEle, listItems){
-	// JQUERY SOLUTION
-	listEle.hide();
-	listEle.empty();
+function replaceListElements(listEle, listItems){
+	// ANIME SOLUTION
+	anime({
+		targets: listEle,
+		translateX: -1000
+	});
+	listEle.innerHTML = "";
+
 
 	for (let i= 0; i<= listItems.length - 1; i++){
-		// JQUERY SOLUTION
-		let liEle = $(document.createElement("li"));
-		// JQUERY SOLUTION
-		liEle.append(document.createTextNode(listItems[i]));
-		// JQUERY SOLUTION
-		liEle.appendTo(listEle)
+		let liEle = document.createElement("li");
+		liEle.appendChild(document.createTextNode(listItems[i]));
+		listEle.appendChild(liEle)
 	}
 
-	// JQUERY SOLUTION
-	listEle.fadeIn('slow');
+	// ANIME SOLUTION
+	setTimeout(() => {
+			anime({
+				targets: listEle,
+				translateX: 0,
+				easing: "easeOutExpo"
+			})
+	}, 200)
 }
 /**
  * Shuffles array elements
