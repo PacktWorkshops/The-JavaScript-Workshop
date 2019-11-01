@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="players.js"></script>
+</head>
+
+<body>
+
+Arsenal Player Honors:
+<ul id="honorsList"></ul>
+
+<script>
+
+// Pyramid of DOOM!!!
+$.getJSON(ALL_LEAGUES_URL, function(leagueData) {
+    const leagueId = findLeagueId(leagueData, LEAGUE_NAME);
+    $.getJSON(ALL_TEAMS_URL, {id: leagueId}, function(teamData) {
+        const teamId = findTeamId(teamData, TEAM_NAME);
+        $.getJSON(ALL_PLAYERS_URL, {id: teamId}, function(playerData) {
+            playerData.player.forEach(player => {
+                $.getJSON(PLAYER_HONORS_URL, {id: player.idPlayer},
+                    function(honorData) {
+                        printHonors(honorData);
+                    }
+                );
+            });
+        });
+    });
+});
+
+</script>
+
+</body>
+
+</html>

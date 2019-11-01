@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<script src="players.js"></script>
+</head>
+
+<body>
+
+Arsenal Player Honors:
+<ul id="honorsList"></ul>
+
+<script>
+
+// technique #1 - use a regular function that returns another curried function
+function getTeamsInLeague(leagueName) {
+    return leagueData => {
+        const leagueId = findLeagueId(leagueData, leagueName);
+        return myFetch(ALL_TEAMS_URL, {id: leagueId});
+    }
+}
+
+// technique #2 – use a function variable and multiple arrow functions
+const getPlayersOnTeam = teamName => teamData => {
+    const teamId = findTeamId(teamData, teamName);
+    return myFetch(ALL_PLAYERS_URL, {id: teamId});
+}
+
+myFetch(ALL_LEAGUES_URL)
+  .then(getTeamsInLeague(LEAGUE_NAME))
+  .then(getPlayersOnTeam(TEAM_NAME))
+  .then(getPlayerHonors)
+  .catch(console.log);
+
+function getPlayerHonors(playerData) {
+    const sequence = Promise.resolve();
+
+    playerData.player.forEach(player =>
+        sequence
+          .then(() => myFetch(PLAYER_HONORS_URL, {id: player.idPlayer}))
+          .then(printHonors));
+
+    return sequence;
+}
+
+</script>
+
+</body>
+
+</html>

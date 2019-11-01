@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Create TODO</title>
+    <script src="model.js"></script>
+    <script src="create_todos.js"></script>
+  </head>
+  <body onload="loadHandler();">
+    <div id="notifications"></div>
+    <form id="todo_form" />
+      <label>Title:
+        <input type="text" id="title" />
+      </label>
+      <label>Description:
+        <textarea id="description"></textarea>
+      </label>
+      <input type="submit" value="Create TODO" />
+    </form>
+  </body>
+</html>
