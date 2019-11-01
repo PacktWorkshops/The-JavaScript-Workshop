@@ -1,8 +1,8 @@
-function PersonName(first_name, last_name) { 
-    this.first_name = first_name; 
-    this.last_name = last_name; 
+function PersonName(firstName, lastName) { 
+    this.firstName = firstName; 
+    this.lastName = lastName; 
     this.fullName = function(){ 
-		return [ this.first_name, this.last_name].join(" ");
+		return [ this.firstName, this.lastName].join(" ");
      }
  } 
 
