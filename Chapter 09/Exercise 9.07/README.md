@@ -1,6 +1,10 @@
 ## How to use
 
-1. Execute the script using following command :
+1. Install dependencies.
+
+`npm install`
+
+2. Execute the script using following command :
 
 `node MongoDBConnect.js`
 
