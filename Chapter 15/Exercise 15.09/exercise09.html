@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+
+<body>
+
+Press F12 to see output in the JavaScript console
+
+<script>
+
+const suits =
+    () => [
+        { suit: "hearts", symbol: '&#9829;' },    // symbol: '♥'
+        { suit: 'diamonds', symbol: '&#9830;' },  // symbol: '♦'
+        { suit: 'spades', symbol: '&#9824;' },    // symbol: '♠'
+        { suit: 'clubs', symbol: '&#9827;' }      // symbol: '♣'
+    ];
+
+const rankNames =
+    () => ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q','K'];
+
+const createOrderedDeck =
+    (suits, ranks) => suits.reduce(
+        (deck, suit) => {
+            const cards = ranks.map(rank => ({ ...rank, ...suit }));
+            return deck.concat(cards);
+        }, []);
+
+const orderedDeck = createOrderedDeck(suits(), rankNames());
+
+const compose =
+    (...fns) => input => fns.reduceRight((prev, fn) => fn(prev), input);
+
+const pipe =
+    (...fns) => input => fns.reduce((prev, fn) => fn(prev), input);
+
+const map = fx => arr => arr.map(fx);
+
+const randomizer =
+    Math.random;
+
+const addRandom =
+    randomizer => deck => deck.map(card => ({
+        random: randomizer(),
+        card
+    }));
+
+const sortByRandom =
+    deck => [...deck].sort((a, b) => a.random - b.random);
+
+const shuffle =
+    (deck, randomizer) => {
+        const doShuffle = pipe(
+            addRandom(randomizer),
+            sortByRandom,
+            map(card => card.card)
+        );
+        return doShuffle(deck);
+    };
+
+console.log(shuffle(orderedDeck, randomizer));
+
+</script>
+
+</body>
+
+</html>
