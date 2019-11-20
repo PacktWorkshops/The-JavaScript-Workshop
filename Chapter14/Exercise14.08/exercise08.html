@@ -20,6 +20,9 @@ const suits =
 const rankNames =
     () => ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q','K'];
 
+const ranks =
+    rankNames => rankNames.map(rankName => ({ rank: rankName }));
+
 const createOrderedDeck =
     (suits, ranks) => suits.reduce(
         (deck, suit) => {
@@ -27,7 +30,7 @@ const createOrderedDeck =
             return deck.concat(cards);
         }, []);
 
-const orderedDeck = createOrderedDeck(suits(), rankNames());
+const orderedDeck = createOrderedDeck(suits(), ranks(rankNames()));
 
 console.log(orderedDeck);
 
