@@ -17,14 +17,16 @@ function remove() {
   document.body.removeChild(imageWrapper);
 } // Remove the 'imageWrapper' div from the body
 
+
 function resetImageWrapper() {
  imageWrapper = document.createElement('div');
 }
 
 function process() {
-  for (let i=0;i<1000;i++) {
-    loadImages();
-    add();
-    remove();
-  };
-};
+ for (let i = 0; i< 1000; i++) {
+ loadImages();
+ add();
+ remove();
+ resetImageWrapper();
+ }
+}
