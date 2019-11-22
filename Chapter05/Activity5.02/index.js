@@ -26,7 +26,7 @@ function modelStateChange(state, action, data) {
     let data = modelFindIndex(todos, ev.detail);
     if (i > -1) {
       state = state.splice(i, 1);
-      console.log("removed", data);
+      console.log("modified", data);
       return state
     }
   }
