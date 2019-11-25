@@ -22,20 +22,16 @@ function getTeamsInLeague(leagueData, leagueName) {
     const leagueId = findLeagueId(leagueData, leagueName);
     return myFetch(ALL_TEAMS_URL, {id: leagueId});
 }
-
 function getPlayersOnTeam(teamData, teamName) {
    const teamId = findTeamId(teamData, teamName);
    return myFetch(ALL_PLAYERS_URL, {id: teamId});
 }
-
 function getPlayerHonors(playerData) {
     const sequence = Promise.resolve();
-
     playerData.player.forEach(player =>
         sequence
           .then(() => myFetch(PLAYER_HONORS_URL, {id: player.idPlayer}))
           .then(printHonors));
-
     return sequence;
 }
 
