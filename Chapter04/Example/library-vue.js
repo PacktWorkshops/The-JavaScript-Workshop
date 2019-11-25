@@ -1,10 +1,10 @@
-// html
+// example.html
 <div id="example">
   <input :value="text" @input="update"/>
   <div v-html="myOwnText"></div>
 </div>
 // -----------------------------------------------------------------
-// javascript
+// example.js
 new Vue({
   el: '#example',
   data: {
