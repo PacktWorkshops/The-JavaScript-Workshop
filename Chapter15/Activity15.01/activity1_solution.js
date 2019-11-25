@@ -31,7 +31,6 @@ const nextEventUrl = BASE_URL + "eventsnextleague.php?id=4328";
     console.log("All done!");
 })();
 
-
 async function use1() {
     let response = await addDelay(3000, fetch(nextEventUrl));
     let nextEvents = await response.json();
