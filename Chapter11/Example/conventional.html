@@ -2,18 +2,13 @@
 <head>
   <meta charset="utf-8"/>
 </head>
-
 <body>
-
 Enter a phone number in format XXX-XXX-XXXX:
 <input type="text" id="phone">
 <div id="msg"></div>
-
 <script>
-
 var phone = document.getElementById("phone");
 phone.addEventListener("input", validatePhoneNumber);
-
 function isDigit(character) {
     return character >= '0' && character <= '9';
 }
