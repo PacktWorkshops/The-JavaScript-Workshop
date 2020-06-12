@@ -1,6 +1,7 @@
 // tf.js
 const webcam = document.getElementById('video');
 let canvas = document.getElementById('canvas');
+
 async function objectDetection() {
   console.log(webcam);
   canvas.width = webcam.width;
@@ -10,7 +11,7 @@ async function objectDetection() {
   context.strokeStyle = 'red';
   context.fillStyle = 'red';
   context.font = "25px Arial";
-  await setupWebcam();
+  await initWebcam();
 
   while (true) {
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -29,7 +30,7 @@ async function objectDetection() {
   }
 }
 
-async function setupWebcam() {
+async function initWebcam() {
   return new Promise((resolve, reject) => {
     const navigatorAny = navigator;
     navigator.getUserMedia = navigator.getUserMedia ||

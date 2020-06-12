@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // parse the data
     let messageData = JSON.parse(event.data);
     // create a new HTML <li> element
-    let newMessage = document.createElement('li'
+    let newMessage = document.createElement('li')
     // set the <li> element's innerText to the messag text);
     newMessage.innerText = messageData.message;
     // if it's a group message

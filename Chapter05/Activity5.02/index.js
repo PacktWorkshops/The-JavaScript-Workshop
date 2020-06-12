@@ -11,23 +11,46 @@ function modelFindIndex(state, id) {
 
 function modelStateChange(state, action, data) {
   if (action == "CREATE") {
-    console.log("created:", data);
+    data['createdAt'] = new Date();
+       data['updatedAt'] = new Date();
+       data['completed'] = false;
+       console.log("created:", data);
     return state.concat(data);
   }
   if (action == "REMOVE") {
-   let data = modelFindIndex(todos, ev.detail);
-    if (i > -1) {
-      state = state.splice(i, 1);
-      console.log("removed", data);
-      return state
+   let item = modelFindIndex(state, data.id);
+       if (item > -1) {
+          console.log("removed", state[item]);
+          delete state[item];
+          return state
+       }
     }
-  }
   if (action == "MODIFY") {
-    let data = modelFindIndex(todos, ev.detail);
-    if (i > -1) {
-      state = state.splice(i, 1);
-      console.log("modified", data);
-      return state
-    }
-  }
+  let modifyItem = state.splice(item, 1
+);
+
+modifyItem[0]['updatedAt'] = new Date();
+modifyItem[0]['completed'] = data.completed;
+console.log("modified item", modifyItem[0]);
+state[item]= modifyItem[0];
+console.log("complete array:", state);
+return state
 }
+
+}
+
+}
+
+// call CREATE Method
+
+// todos = modelStateChange(todos, "CREATE", { id: 1, title: "Learn JS", description: "I will learn JS from Packtpub.com" } );
+
+// todos = modelStateChange(todos, "CREATE", { id: 2, title: "Learn Event", description: "I will learn JS Event from Packtpub.com" } );
+
+//call Modify Method
+
+// todos = modelStateChange(todos, "MODIFY", { id: 2, completed: true } );
+
+//call REMOVE Method
+
+// todos = modelStateChange(todos, "REMOVE", { id :"1"} );

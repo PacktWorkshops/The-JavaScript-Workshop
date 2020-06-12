@@ -3,18 +3,19 @@ $(document).ready(function () {
     $.ajax({
         method: 'GET',
         dataType: 'json',
-        url: 'https://www.thesportsdb.com/api/v1/json/1/eventslast.php',
-        data: {id: 134862},
+        url: 'https://www.thesportsdb.com/api/v1/json/1/lookupevent.php', 
+data: {id: 441613},
+
         success: function (data) {
         
-            // find the most recent game that had a score reported
-            const lastGame = data.results.find(g => g.intAwayScore != null && 
-                                                    g.intHomeScore != null);
-      
-            $("#game_date").html(lastGame.dateEvent);
+            const game = data.events[0];
+  $("#game_date").html(game.dateEvent);
 
-            const homeScore = parseInt(lastGame.intHomeScore);
-            const awayScore = parseInt(lastGame.intAwayScore);
+      
+
+            const homeScore = parseInt(game.intHomeScore);
+                     const awayScore = parseInt(game.intAwayScore);
+
             const homeWinner = homeScore > awayScore;
             const tie = homeScore == awayScore;
 
@@ -23,8 +24,9 @@ $(document).ready(function () {
             $("#away_score").html(awayScore)
                 .addClass( (!homeWinner || tie) ? "winning_score" : "");
 
-            getTeamImage(lastGame.idHomeTeam, "#home_img");
-            getTeamImage(lastGame.idAwayTeam, "#away_img");
+           getTeamImage(game.idHomeTeam, "#home_img");
+            getTeamImage(game.idAwayTeam, "#away_img");
+
             
             $("#game_table").show();
         }

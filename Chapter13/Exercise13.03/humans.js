@@ -21,17 +21,8 @@ class Teacher extends Humans {
   info() {
     console.log(this);
   }
-
-  get subject() {
-    return this._subject;
-  }
-
-  set subject(newSubject) {
-    this._subject = newSubject;
-  }
 }
 
 let teacher = new Teacher('Gaurav Mehla', 24, 'Male', 'Math', 'A');
 
-teacher.subject = 'Science'; // Setter Function
-teacher.info(); // Print Everything
+teacher.info();

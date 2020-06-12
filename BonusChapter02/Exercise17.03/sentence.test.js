@@ -3,7 +3,7 @@ test('it should return Failure if it is not passed an Identity instance', () => 
  let res = validateString(id);
  expect(res).toBeInstanceOf(Failure);
 });
-test('it should return Failure if the passed Identity doesn’t contain a string value', () => {
+test('it should return Failure if the passed Identity doesn\'t contain a string value', () => {
   let id = Identity.from(1234);
   let res = validateString(id);
   expect(res).toBeInstanceOf(Failure);

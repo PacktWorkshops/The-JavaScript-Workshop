@@ -1,17 +1,19 @@
-varÂ MySQLÂ =Â require('mysql');
+var MySQL = require('mysql');
 
-varÂ connectionÂ =Â MySQL.createConnection({
-Â Â Â Â Â Â Â Â host:Â 'localhost',
-Â Â Â Â Â Â Â Â user:Â 'root',			// Username of MySQL Database
-Â Â Â Â Â Â Â Â password:Â '12345678',	// Password for user mentioned above
-Â Â Â Â Â Â Â Â database:Â 'packt_javascript'
+var connection = MySQL.createConnection({
+        host: 'localhost',
+        user: 'root',			// Username of MySQL Database
+        password: '12345678',	// Password for user mentioned above
+        database: 'packt_javascript'
 });
 
-connection.connect(functionÂ (err)Â {
-Â Â Â Â ifÂ (err)Â {
-Â Â Â Â Â Â Â Â Â Â Â console.error('errorÂ connecting:Â 'Â +Â err.stack);
-Â Â Â Â Â Â Â Â Â Â Â return;
-Â Â Â Â }
+connection.connect(function (err) {
+    if (err) {
+           console.error('error connecting: ' + err.stack);
+           return;
+    }
 
-Â Â Â Â console.log('connectedÂ asÂ idÂ 'Â +Â connection.threadId);
+    console.log('connected as id ' + connection.threadId);
 });
+
+connection.end();

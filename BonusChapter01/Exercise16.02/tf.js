@@ -1,8 +1,10 @@
 // tf.js
 const videoElem = document.getElementById('video');
 const statusElem = document.getElementById('status');
+
+initWebcam();
+
 async function classifyImage() {
-  await initWebcam();
   statusElem.innerText = 'Loading MobileNet...'
   let model = await mobilenet.load();
   while (true) {
@@ -30,4 +32,7 @@ async function initWebcam() {
     }
   }
 }
-classifyImage();
+
+videoElem.onloadeddata = function() {
+  classifyImage();
+}
