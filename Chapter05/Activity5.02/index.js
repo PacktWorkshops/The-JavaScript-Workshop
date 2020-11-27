@@ -26,19 +26,15 @@ function modelStateChange(state, action, data) {
        }
     }
   if (action == "MODIFY") {
-  let modifyItem = state.splice(item, 1
-);
-
-modifyItem[0]['updatedAt'] = new Date();
-modifyItem[0]['completed'] = data.completed;
-console.log("modified item", modifyItem[0]);
-state[item]= modifyItem[0];
-console.log("complete array:", state);
-return state
-}
-
-}
-
+    let item = modelFindIndex(state, data.id);
+    let modifyItem = state.splice(item, 1);
+    modifyItem[0]['updatedAt'] = new Date();
+    modifyItem[0]['completed'] = data.completed;
+    console.log("modified item", modifyItem[0]);
+    state[item]= modifyItem[0];
+    console.log("complete array:", state);
+    return state
+  }
 }
 
 // call CREATE Method
