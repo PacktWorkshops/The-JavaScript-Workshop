@@ -11,7 +11,7 @@
       const listFragment = document.createDocumentFragment();
       todoListItems.forEach(item => {
         const currentItemElement = document.createElement('li');
-        currentItemElement.innerText = item;
+        currentItemElement.textContent = item;
         listFragment.appendChild(currentItemElement)
       });
 
