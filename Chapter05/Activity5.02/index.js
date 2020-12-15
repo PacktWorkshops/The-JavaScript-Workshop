@@ -26,6 +26,7 @@ function modelStateChange(state, action, data) {
        }
     }
   if (action == "MODIFY") {
+  let item = modelFindIndex(state, data.id);
   let modifyItem = state.splice(item, 1
 );
 
