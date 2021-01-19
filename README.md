@@ -7,7 +7,7 @@
 This is the repository for [The JavaScript Workshop](https://www.amazon.com/JavaScript-Workshop-Interactive-Approach-Learning-ebook/dp/B0824584WF/ref=sr_1_1?dchild=1&keywords=The%20JavaScript%20Workshop&qid=1611056880&sr=8-1&utm_source=GitHub&utm_medium=Repository&utm_campaign=9781838641917&utm_term=JavaScript&utm_content=The%20JavaScript%20Workshop), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the course from start to finish.
 
 ## Requirements and Setup
-<a href="https://www.amazon.com/JavaScript-Workshop-Interactive-Approach-Learning-ebook/dp/B0824584WF/ref=sr_1_1?dchild=1&keywords=The%20JavaScript%20Workshop&qid=1611056880&sr=8-1&utm_source=GitHub&utm_medium=Repository&utm_campaign=9781838641917&utm_term=JavaScript&utm_content=The%20JavaScript%20Workshop"><img src="https://github.com/PacktWorkshops/Workshop-Covers/blob/master/The%20Java%20Workshop.png" alt="The Java Workshop" height="300px" width="250px" align="right" this.target="_blank"></a>
+<a href="https://www.amazon.com/JavaScript-Workshop-Interactive-Approach-Learning-ebook/dp/B0824584WF/ref=sr_1_1?dchild=1&keywords=The%20JavaScript%20Workshop&qid=1611056880&sr=8-1&utm_source=GitHub&utm_medium=Repository&utm_campaign=9781838641917&utm_term=JavaScript&utm_content=The%20JavaScript%20Workshop"><img src="https://github.com/PacktWorkshops/Workshop-Covers/blob/master/The%20Java%20Workshop.png" alt="The Java Workshop" height="280px" width="240px" align="right" this.target="_blank"></a>
 
 To get started with the project files, you'll need to:
 1. Install [Visual Studio Code Editor](https://code.visualstudio.com/)
