@@ -28,8 +28,3 @@ If you've found this repository useful, you might want to check out some of our 
 * [The HTML and CSS Workshop](https://www.amazon.com/HTML-CSS-Workshop-Interactive-Approach-ebook/dp/B082926TQG/ref=sr_1_1?dchild=1&keywords=The%20HTML%20and%20CSS%20Workshop&qid=1611056782&sr=8-1&utm_source=GitHub&utm_medium=Repository&utm_campaign=9781838824532&utm_term=HTML%20and%20CSS&utm_content=The%20HTML%20and%20CSS%20Workshop)
 * [The Go Workshop](https://www.amazon.com/Go-Workshop-Interactive-Approach-Learning-dp-1838647945/dp/1838647945/ref=mt_other?_encoding=UTF8&me=&qid=1611061203&utm_source=github&utm_medium=repository&utm_campaign=9781838647940&utm_term=Go&utm_content=The%20Go%20Workshop  )
 * [The React Workshop](https://www.amazon.com/React-Workshop-Interactive-Approach-Learning-ebook/dp/B082VG6JCL/ref=sr_1_1?dchild=1&keywords=The%20React%20Workshop&qid=1611056710&sr=8-1&utm_source=GitHub&utm_medium=Repository&utm_campaign=9781838645564&utm_term=React&utm_content=The%20React%20Workshop)
-
-
-
-
-
