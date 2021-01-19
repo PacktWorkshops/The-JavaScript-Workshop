@@ -1,26 +1,35 @@
-[![GitHub issues](https://img.shields.io/github/issues/PacktWorkshops/The-JavaScript-Workshop.svg)](https://github.com/PacktWorkshops/The-JavaScript-Workshop/issues)
-[![GitHub forks](https://img.shields.io/github/forks/PacktWorkshops/The-JavaScript-Workshop.svg)](https://github.com/PacktWorkshops/The-JavaScript-Workshop/network)
-[![GitHub stars](https://img.shields.io/github/stars/PacktWorkshops/The-JavaScript-Workshop.svg)](https://github.com/PacktWorkshops/The-JavaScript-Workshop/stargazers)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/PacktWorkshops/The-JavaScript-Workshop/pulls)
+# The Java Workshop
+[![GitHub issues](https://img.shields.io/github/issues/PacktWorkshops/The-Java-Workshop.svg)](https://github.com/PacktWorkshops/The-Java-Workshop/issues)
+[![GitHub forks](https://img.shields.io/github/forks/PacktWorkshops/The-Java-Workshop.svg)](https://github.com/PacktWorkshops/The-Java-Workshop/network)
+[![GitHub stars](https://img.shields.io/github/stars/PacktWorkshops/The-Java-Workshop.svg)](https://github.com/PacktWorkshops/The-Java-Workshop/stargazers)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightblue.svg)](https://github.com/PacktWorkshops/The-Java-Workshop/pulls)
 
-# The JavaScript Workshop
-You already know you want to learn JavaScript, and a smarter way to learn JavaScript is to learn by doing. The JavaScript Workshop focuses on building up your practical skills so that you can develop cutting-edge applications for web, mobile and desktop users. Alongside knowledge of HTML and CSS, JavaScript is a key skill for those looking to enter professional web development. You'll learn from real examples that lead to real results. 
+This is the repository for [The JavaScript Workshop](https://www.amazon.com/JavaScript-Workshop-Interactive-Approach-Learning-ebook/dp/B0824584WF/ref=sr_1_1?dchild=1&keywords=The%20JavaScript%20Workshop&qid=1611056880&sr=8-1&utm_source=GitHub&utm_medium=Repository&utm_campaign=9781838641917&utm_term=JavaScript&utm_content=The%20JavaScript%20Workshop), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the course from start to finish.
 
-Throughout The JavaScript Workshop, you'll take an engaging step-by-step approach to understanding JavaScript code. You won't have to sit through any unnecessary theory. If you're short on time you can jump into a single exercise each day or spend an entire weekend learning about functional programming and unit testing. It's your choice. Learning on your terms, you'll build up and reinforce key skills in a way that feels rewarding. 
+## Requirements and Setup
+<a href="https://www.amazon.com/JavaScript-Workshop-Interactive-Approach-Learning-ebook/dp/B0824584WF/ref=sr_1_1?dchild=1&keywords=The%20JavaScript%20Workshop&qid=1611056880&sr=8-1&utm_source=GitHub&utm_medium=Repository&utm_campaign=9781838641917&utm_term=JavaScript&utm_content=The%20JavaScript%20Workshop"><img src="https://github.com/PacktWorkshops/Workshop-Covers/blob/master/The%20Java%20Workshop.png" alt="The Java Workshop" height="300px" width="250px" align="right" this.target="_blank"></a>
 
-Every physical copy of The JavaScript Workshop unlocks access to the interactive edition. With videos detailing all exercises and activities, you'll always have a guided solution. You can also benchmark yourself against assessments, track progress, and receive content updates. You'll even earn a secure credential that you can share and verify online upon completion. It's a premium learning experience that's included with your printed copy. To redeem, follow the instructions located at the start of your JavaScript book. 
+To get started with the project files, you'll need to:
+1. Install [Visual Studio Code Editor](https://code.visualstudio.com/)
 
-Fast-paced and direct, The JavaScript Workshop is the ideal companion for JavaScript beginners. You'll build and iterate on your JavaScript coding skills like a real software developer, learning along the way. This process means that you'll find that your new skills stick, embedded as best practice. A solid foundation for the years ahead. 
+## About The Java Workshop
+[The JavaScript Workshop](https://www.amazon.com/JavaScript-Workshop-Interactive-Approach-Learning-ebook/dp/B0824584WF/ref=sr_1_1?dchild=1&keywords=The%20JavaScript%20Workshop&qid=1611056880&sr=8-1&utm_source=GitHub&utm_medium=Repository&utm_campaign=9781838641917&utm_term=JavaScript&utm_content=The%20JavaScript%20Workshop) is a definitive guide to learning JavaScript in a practical way. Starting with JavaScript's core syntax and structure, the book gradually builds up to more advanced concepts like server-side development and functional programming. With this book, you'll gain the confidence to tackle any real-world JavaScript challenge.
 
 ## What you will learn
-* Learn how you can work with JavaScript to develop for the modern web
-* Discover ways to write clean and maintainable JavaScript code
-* Learn how to use unit testing to write bug free and stable JavaScript code
-* Simplify your workflow with package managers like Gulp, Grunt, and Webpack
-* Improve the performance of your web applications with server-side JavaScript
-* Explore ways to access and process external resources within your JavaScript application 
+* Write clean, maintainable and eloquent JavaScript code
+* Build websites using plain JS and various frameworks and libraries
+* Simplify your workflow with package managers such as Gulp and Grunt
+* Use Node.js to build server-side JavaScript applications
+* Improve the functionality of your applications with browser APIs
+* Implement asynchronous programming to build apps that can multitask
 
-**The examples of this title has been implemented in the Windows/MAC/Linux operating system.**
+## Related Workshops
+If you've found this repository useful, you might want to check out some of our other workshop titles:
+* [The HTML and CSS Workshop](https://www.amazon.com/HTML-CSS-Workshop-Interactive-Approach-ebook/dp/B082926TQG/ref=sr_1_1?dchild=1&keywords=The%20HTML%20and%20CSS%20Workshop&qid=1611056782&sr=8-1&utm_source=GitHub&utm_medium=Repository&utm_campaign=9781838824532&utm_term=HTML%20and%20CSS&utm_content=The%20HTML%20and%20CSS%20Workshop)
+* [The Go Workshop](https://www.amazon.com/Go-Workshop-Interactive-Approach-Learning-dp-1838647945/dp/1838647945/ref=mt_other?_encoding=UTF8&me=&qid=1611061203&utm_source=github&utm_medium=repository&utm_campaign=9781838647940&utm_term=Go&utm_content=The%20Go%20Workshop  )
+* [The React Workshop](https://www.amazon.com/React-Workshop-Interactive-Approach-Learning-ebook/dp/B082VG6JCL/ref=sr_1_1?dchild=1&keywords=The%20React%20Workshop&qid=1611056710&sr=8-1&utm_source=GitHub&utm_medium=Repository&utm_campaign=9781838645564&utm_term=React&utm_content=The%20React%20Workshop)
 
-### Software Requirement
-* IDE: Visual Studio Code Editor
+
+
+
+
